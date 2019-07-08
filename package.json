@@ -1,0 +1,5 @@
+{
+	"name": "mod-require-fix",
+	"preload": "preload.js",
+	"module": true
+}
