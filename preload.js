@@ -7,6 +7,11 @@ const oldRequire = window.require;
 
 function getAdditionRequirePaths(callerRelativeFilePath) {
 	const pathToCallerFile = path.resolve(`.${callerRelativeFilePath}`);
+
+	// just to avoid an infinite loop
+	if (!pathToCallerFile.startsWith(process.cwd()))
+		return [];
+
 	const searchPaths = [];
 	let pathToFolder;
 	let currentPath = pathToCallerFile;
